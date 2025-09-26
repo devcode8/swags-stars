@@ -125,7 +125,7 @@ export default function SpinWheel({ username }: SpinWheelProps) {
           <div className="text-6xl mb-4">🎉</div>
           <h2 className="text-2xl font-light text-gray-800 mb-4">Welcome back!</h2>
           <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 p-4 rounded-xl mb-4">
-            <p className="font-medium mb-2">You've already spun the wheel!</p>
+            <p className="font-medium mb-2">You&apos;ve already spun the wheel!</p>
             <p className="text-sm">Your prize: <span className="font-semibold">{winner}</span></p>
           </div>
           <p className="text-gray-500 text-sm">Each user can only spin once. Show this screen at the ETH Global booth to claim your prize.</p>

@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
-    const token = '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';
+    const token = process.env.GITHUB_TOKEN;
+    
+    if (!token) {
+      return NextResponse.json({ error: 'GitHub token not configured' }, { status: 500 });
+    }
     const repoOwner = 'fetchai';
     const repoName = 'innovation-lab-examples';
 
@@ -47,7 +51,7 @@ export async function GET(request: NextRequest) {
         full_name: repoInfo.full_name,
         stargazers_count: repoInfo.stargazers_count
       },
-      firstFewStargazers: stargazers.map((s: any) => s.login).slice(0, 5),
+      firstFewStargazers: stargazers.map((s: { login: string }) => s.login).slice(0, 5),
       stargazersCount: stargazers.length
     });
 

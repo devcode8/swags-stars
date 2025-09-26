@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Check if the username is in this page of stargazers
-      const foundUser = stargazers.find((stargazer: any) => 
+      const foundUser = stargazers.find((stargazer: { login: string }) => 
         stargazer.login.toLowerCase() === username.toLowerCase()
       );
 

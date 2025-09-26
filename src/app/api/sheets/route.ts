@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
     let data;
     try {
       data = JSON.parse(text);
-    } catch (e) {
+    } catch {
       console.log('Response is not JSON, treating as not found');
       data = { exists: false };
     }
@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
     let data;
     try {
       data = JSON.parse(text);
-    } catch (e) {
+    } catch {
       // If response is not JSON, assume success if no error in text
       if (text.toLowerCase().includes('error')) {
         data = { success: false, error: text };
